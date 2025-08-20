@@ -1,0 +1,108 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f2f4f8;
+}
+
+/* Barra verde no topo com mensagem */
+.mensagem-sucesso {
+    background-color: #2ca950;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 80px;
+    text-align: center;
+    border-bottom: 4px solid #248d45;
+}
+
+/* Container central com sombra e borda arredondada */
+.container {
+    max-width: 960px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    gap: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagem do carro/banner */
+.container .banner img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Card da imagem (lado esquerdo) */
+.banner {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner img {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+/* Informações ao lado direito */
+.info-loja {
+    flex: 1;
+    background-color: #e8ebf0;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.info-loja h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.info-loja h3 {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+/* Botão verde */
+.botao-verde {
+    display: inline-block;
+    background-color: grey;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.botao-verde:hover {
+    background-color: black;
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .info-loja {
+        padding: 20px;
+    }
+
+    .mensagem-sucesso {
+        font-size: 18px;
+    }
+}

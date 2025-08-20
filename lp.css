@@ -1,0 +1,67 @@
+ .text{
+	width: 90%;
+	background-color: silver;
+	color: black;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: nome;
+	border-radius: 3px;
+	cursor: pointer;
+	text-decoration: none;
+	font-family: arial;
+}
+
+div{
+	background-color: white;
+	border: 5px solid black;
+	border-radius: 10px;
+	max-height: fill;
+	max-width: 60%;
+	padding: 50px, 50px;
+	margin-top: 15%;
+	padding-top: 10px;
+}
+label {
+	font-family: arial;
+}
+
+select{
+	width: 30%;
+	background-color: silver;
+	color: black;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: nome;
+	border-radius: 3px;
+	cursor: pointer;
+	text-decoration: none;
+	font-family: arial;
+}
+
+.city{
+	width: 59%;
+	background-color: silver;
+	color: black;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: nome;
+	border-radius: 3px;
+	cursor: pointer;
+	text-decoration: none;
+	font-family: arial;
+}
+
+.ex1 {
+  border: 2px solid black;
+  outline-style: solid;
+  outline-color: red;
+}
+.text:hover, .city:hover, select:hover{
+	background-color: red;
+}
+body{
+	padding-bottom: 10%;
+}
+h1{
+	color: white;
+}

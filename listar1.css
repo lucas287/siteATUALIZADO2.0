@@ -1,0 +1,231 @@
+ body {
+      background-color: black;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+   .topnav {
+  background-color: darkred;
+  overflow: visible; /* Alterado de hidden para visible */
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  position: relative; /* Adicionado */
+  z-index: 10;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 0 10px;
+  z-index: 30; /* Garantir que os dropdowns fiquem acima */
+}
+
+    .dropbtn {
+      background-color: black;
+      color: white;
+      padding: 12px 18px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .dropbtn:hover {
+      background-color: darkred;
+    }
+
+   .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: darkgray;
+  min-width: 180px;
+  border-radius: 5px;
+  z-index: 9999; /* Muito alto para garantir sobreposição */
+}
+
+    .dropdown-content a {
+      color: white;
+      padding: 10px 15px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: black;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      margin: 40px 0 20px;
+    }
+
+    .clientes-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 0 20px 40px;
+    }
+
+    .cliente-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.2);
+      padding: 20px;
+      width: 300px;
+      color: black;
+      transition: transform 0.3s ease;
+    }
+
+    .cliente-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .cliente-card h3 {
+      margin-top: 0;
+      color: red;
+    }
+
+    .cliente-card p {
+      margin: 6px 0;
+    }
+
+    .mensagem {
+      text-align: center;
+      color: #ffc107;
+      margin-top: 20px;
+    }
+
+    hr {
+      border: 1px solid #444;
+    }
+
+    body {
+  background-color: #252422;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.topnavv {
+  background-color:  darkred;
+  overflow: visible;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 9999;
+}
+.dropdownv {
+      position: relative;
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    .dropbtnv {
+      background-color: black;
+      color: white;
+      padding: 10px 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .dropbtnv:hover {
+      background-color: darkred;
+    }
+
+ .dropdownv-content {
+  display: none;
+  position: absolute;
+  background-color: darkgray;
+  min-width: 160px;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 99999;
+}
+
+
+.dropdownv-content a {
+  color: white;
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdownv-content a:hover {
+  background-color: black;
+}
+
+.dropdownv:hover .dropdownv-content {
+  display: block;
+}
+
+h1 {
+  text-align: center;
+  color: red;
+  margin: 40px 0 20px;
+}
+
+.veiculos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 0 20px 40px;
+}
+
+.veiculo-card {
+  background-color: #000000;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px red;
+  padding: 20px;
+  width: 300px;
+  color: white;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.veiculo-card:hover {
+  transform: translateY(-5px);
+}
+
+.veiculo-card img {
+  border-radius: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+}
+
+.veiculo-card p {
+  margin: 5px 0;
+}
+
+.veiculo-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.veiculo-card a:hover {
+  background-color: black;
+}
+
+.mensagem {
+  text-align: center;
+  color: darkgray;
+  margin-top: 20px;
+}

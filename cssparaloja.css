@@ -1,0 +1,45 @@
+body {
+    font-family: 'Arial', sans-serif; /* Define a fonte padrão para o corpo do documento */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o padding padrão */
+    color: #333; /* Define a cor do texto como cinza escuro */
+}
+
+header {
+    background-color: #000; /* Define a cor de fundo do cabeçalho como preto */
+    color: white; /* Define a cor do texto como branco */
+    padding: 1em 0; /* Adiciona padding ao redor do cabeçalho */
+    display: flex; /* Usa o flexbox para o layout do cabeçalho */
+    justify-content: space-between; /* Espaça os itens do cabeçalho igualmente */
+    align-items: center; /* Alinha os itens do cabeçalho ao centro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra ao cabeçalho */
+}
+
+header .logo {
+    margin-left: 20px; /* Adiciona margem à esquerda do logotipo */
+}
+
+nav ul {
+    list-style: none; /* Remove os marcadores da lista */
+    display: flex; /* Usa o flexbox para o layout da lista */
+    justify-content: center; /* Centraliza os itens da lista */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o padding padrão */
+}
+
+nav ul li {
+    margin: 0 15px; /* Adiciona margem à esquerda e à direita de cada item da lista */
+}
+
+nav ul li a {
+    color: white; /* Define a cor do texto como branco */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Define o texto como negrito */
+    padding: 5px 10px; /* Adiciona padding ao redor dos links */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave para a cor de fundo */
+}
+
+nav ul li a:hover {
+    background-color: #444; /* Muda a cor de fundo ao passar o mouse */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+}

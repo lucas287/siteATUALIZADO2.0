@@ -1,0 +1,208 @@
+/* Resetando margens e preenchimentos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilizando o cabeçalho */
+header {
+    background-color: black;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Menu Lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0; /* Inicialmente fechado */
+    height: 100%; /* Altura total da tela */
+    background-color: #333; /* Ajustado para garantir visibilidade */
+    overflow-x: hidden;
+    transition: width 0.3s ease;
+    z-index: 1000;
+    padding-top: 20px;
+}
+
+/* Lista de itens do menu */
+.sidebar ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    text-align: center;
+    display: block; /* Garante a exibição dos itens */
+}
+
+.sidebar ul li {
+    display: block; /* Exibe as opções em bloco */
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+    display: block;
+    background-color: transparent;
+}
+
+.sidebar ul li a:hover {
+    background-color: ;
+}
+
+/* Botão de Fechar */
+#close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Botão do Menu */
+#menu-btn {
+    font-size: 30px;
+    cursor: pointer;
+    margin: 10px;
+    color: white;
+    background: none;
+    border: none;
+}
+
+/* Submenu Lateral */
+.submenu-carros, .submenu-motos {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 250px;
+    width: 250px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    transition: display 0.3s ease;
+}
+
+.submenu-carros ul, .submenu-motos ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.submenu-carros li a, .submenu-motos li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 8px 0;
+}
+
+.submenu-carros li a:hover, .submenu-motos li a:hover {
+    background-color: #444;
+}
+
+/* Ajuste para garantir que os menus fiquem visíveis */
+.sidebar ul li {
+    display: block !important;
+}
+
+/* Ajuste no menu lateral */
+#sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+    }
+    .vehicle-list {
+        flex-direction: column;
+    }
+}
+
+/* Exibição dos submenus */
+#submenu-carros.show, #submenu-motos.show, #submenu2-carros.show, #submenu3-carros.show {
+    display: block;
+}
+
+/* Ajuste nos submenus laterais */
+.submenu2-carros, .submenu3-carros {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    background-color: #333;
+    height: 100%;
+    z-index: 1000;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.submenu2-carros ul li, .submenu3-carros ul li {
+    margin: 20px 0;
+    background-color: #333;
+}
+
+.submenu2-carros ul li a, .submenu3-carros ul li a {
+    color: white;
+    background-color: #333;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.submenu2-carros ul li a:hover, .submenu3-carros ul li a:hover {
+    background-color: #333;
+    background-color: #333;
+}
+.submenu2-carros, .submenu3-carros {
+    width: 400px; /* Define uma largura adequada */
+    height: 650px; /* Aumenta a altura do submenu */
+    overflow-y: auto; /* Adiciona rolagem vertical */
+    position: fixed; /* Mantém o menu fixo na tela */
+    top: 50px;
+    right: 0;
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    display: none;
+    background-color: #333;
+}
+
+.submenu2-carros img, .submenu3-carros img {
+    width: 100%; /* Garante que a imagem não ultrapasse a largura */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 8px;
+}
+
+.submenu2-carros .close-btn, .submenu3-carros .close-btn {
+    color: white;
+    font-size: 30px;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    background-color: #333;
+}
+
+#menu-logo {
+    width: 80px; /* Ajuste para o tamanho desejado */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 20px; /* Ajuste a margem, se necessário */
+}

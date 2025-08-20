@@ -1,0 +1,159 @@
+/* General styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 20%; /* Adjust the width to occupy 20% of the screen */
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in width calculations */
+    overflow-y: auto; /* Add scroll if the content exceeds the height */
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+            font-family: monospace;
+        font-size: 18px;
+}
+
+.filters h3, .brand-filter h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.filters label, .brand-filter .brands button {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+            font-family: monospace;
+        font-size: 18px;
+}
+
+.brand-filter .brands button {
+    background-color: #eee;
+    border: none;
+    padding: 10px;
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+        font-family: monospace;
+        font-size: 18px;
+}
+
+.brand-filter .clear {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 20px;
+    box-sizing: border-box;
+    border-radius: 20px; /* Added rounded border */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.brand-filter .clear:hover {
+    background-color: #cc0000; /* Darker shade on hover */
+}
+
+/* Main listings area */
+.listings {
+    flex: 1;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    overflow-y: auto; /* Add scroll if the content exceeds the height */
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.listing {
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.listing:hover {
+    transform: translateY(-5px);
+}
+
+.listing img {
+    width: 80%;
+    height: auto;
+    transition: transform 0.5s ease;
+    flex-grow: 1;
+
+}
+
+.listing:hover img {
+    transform: scale(1.2);
+}
+
+.details {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    text-align: center;
+}
+
+.details h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.details .price {
+    font-size: 24px;
+    color: lightgrey;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.details button {
+    background-color: #000;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: monospace;
+}
+
+.details button:hover {
+    background-color: #333;
+}

@@ -1,0 +1,59 @@
+/* Estiliza o contêiner da lista de veículos */
+.vehicle-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f8f8f8; /* Fundo claro para destacar as imagens */
+}
+
+/* Estiliza cada item de veículo */
+.vehicle {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+/* Adiciona o efeito de zoom ao passar o mouse sobre o item do veículo */
+.vehicle:hover {
+    transform: scale(1.05);
+}
+
+/* Estiliza a imagem do veículo */
+.vehicle img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Adiciona o efeito de zoom às imagens ao passar o mouse sobre o item do veículo */
+.vehicle:hover img {
+    transform: scale(1.1);
+}
+
+/* Estiliza o título da seção */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+/* Estiliza o título de cada veículo */
+h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Estiliza o parágrafo com o preço */
+p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+}

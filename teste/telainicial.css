@@ -1,0 +1,280 @@
+body {
+    font-family: 'Arial', sans-serif; /* Define a fonte padrão para o corpo do documento */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o padding padrão */
+    color: #333; /* Define a cor do texto como cinza escuro */
+}
+
+header {
+    background-color: #000; /* Define a cor de fundo do cabeçalho como preto */
+    color: white; /* Define a cor do texto como branco */
+    padding: 1em 0; /* Adiciona padding ao redor do cabeçalho */
+    display: flex; /* Usa o flexbox para o layout do cabeçalho */
+    justify-content: space-between; /* Espaça os itens do cabeçalho igualmente */
+    align-items: center; /* Alinha os itens do cabeçalho ao centro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra ao cabeçalho */
+}
+
+header .logo {
+    margin-left: 20px; /* Adiciona margem à esquerda do logotipo */
+}
+
+/* Estilo para fixar a barra de navegação no topo com fundo preto */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000; /* Fundo preto para a barra de navegação */
+    z-index: 1000; /* Garante que a barra de navegação fique acima de outros elementos */
+    border-bottom: 1px solid #444; /* Linha fina na parte inferior da barra de navegação em um tom cinza escuro */
+}
+
+nav ul {
+    margin: 0;
+    padding: 10px 0;
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centraliza os itens na barra de navegação */
+}
+
+nav ul li {
+    margin: 0 15px; /* Espaçamento entre os itens da lista */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Cor branca para o texto dos links */
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+nav ul li a:hover {
+    color: #FF0000; /* Cor vermelha ao passar o mouse nos links */
+}
+
+/* Adicionando margem superior ao conteúdo principal para que ele não fique escondido atrás da barra de navegação */
+#main-content {
+    margin-top: 60px; /* Ajuste este valor conforme necessário para evitar sobreposição */
+}
+
+
+
+
+.pro {
+    position: relative; /* Define a posição como relativa para permitir a sobreposição */
+    text-align: center; /* Centraliza o texto */
+    height: 100vh; /* Define a altura como 100% da altura da viewport */
+    color: white; /* Define a cor do texto como branco */
+    overflow: hidden; /* Esconde o conteúdo que ultrapassa os limites */
+}
+
+#bg-video {
+    position: absolute; /* Define a posição como absoluta para a sobreposição */
+    top: 0; /* Posiciona o vídeo no topo */
+    left: 0; /* Posiciona o vídeo à esquerda */
+    width: 100%; /* Define a largura do vídeo como 100% */
+    height: 100%; /* Define a altura do vídeo como 100% */
+    object-fit: cover; /* Faz o vídeo cobrir toda a área */
+    z-index: -1; /* Coloca o vídeo atrás dos outros elementos */
+}
+
+.pro .overlay {
+    position: absolute; /* Define a posição como absoluta para a sobreposição */
+    top: 0; /* Posiciona a sobreposição no topo */
+    left: 0; /* Posiciona a sobreposição à esquerda */
+    right: 0; /* Posiciona a sobreposição à direita */
+    bottom: 0; /* Posiciona a sobreposição no fundo */
+    background: rgba(0, 0, 0, 0); /* Define a cor de fundo com transparência */
+    display: flex; /* Usa o flexbox para o layout da sobreposição */
+    flex-direction: column; /* Organiza os itens em coluna */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+.pro h1 {
+    font-size: 3em; /* Define o tamanho da fonte */
+    margin: 0; /* Remove a margem */
+    color: grey;
+}
+
+.pro p {
+    font-size: 1.5em; /* Define o tamanho da fonte */
+    margin: 20px 0; /* Adiciona margem acima e abaixo do parágrafo */
+}
+
+.pro .btn {
+    display: inline-block; /* Define o botão como bloco inline */
+    padding: 15px 30px; /* Adiciona padding ao botão */
+    background-color: #444; /* Define a cor de fundo do botão */
+    color: white; /* Define a cor do texto como branco */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-size: 1.2em; /* Define o tamanho da fonte */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave para a cor de fundo */
+}
+
+.pro .btn:hover {
+    background-color: #666; /* Muda a cor de fundo ao passar o mouse */
+}
+
+.vehicle-list {
+    padding: 50px 20px; /* Adiciona padding ao redor da lista de veículos */
+    display: flex; /* Usa o flexbox para o layout da lista de veículos */
+    justify-content: space-around; /* Espaça igualmente os veículos */
+    flex-wrap: wrap; /* Permite que os veículos quebrem linha */
+    background-color: #f9f9f9; /* Define a cor de fundo da lista de veículos */
+}
+
+.vehicle {
+    border: 1px solid #ddd; /* Adiciona uma borda aos veículos */
+    padding: 20px; /* Adiciona padding aos veículos */
+    margin: 20px; /* Adiciona margem aos veículos */
+    width: 30%; /* Define a largura dos veículos */
+    text-align: center; /* Centraliza o texto dentro dos veículos */
+    background-color: white; /* Define a cor de fundo dos veículos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra aos veículos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transições suaves para a transformação e a sombra */
+}
+
+.vehicle img {
+    width: 100%;
+    max-width: 300px; /* Para limitar o tamanho máximo da imagem */
+    height: auto;
+}
+.vehicle h3 {
+    margin: 15px 0 10px; /* Adiciona margem acima e abaixo do título do veículo */
+}
+
+.vehicle p {
+    font-size: 1.2em; /* Define o tamanho da fonte */
+    color: #888
+}
+.video-back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+video{
+    object-fit: cover;
+    width: 100%;
+    height: ;
+}
+    
+/* Ajuste para telas pequenas, como smartphones */
+@media (max-width: 768px) {
+    /* Exemplo: Ajustar o tamanho do iframe para ocupar a largura completa */
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Ajustar o título e o texto da sobreposição no vídeo */
+    .overlay h1, .overlay p {
+        font-size: 18px; /* Reduz o tamanho da fonte para telas menores */
+    }
+
+    /* Ajuste de imagens nos veículos */
+    .vehicle img {
+        width: 100%; /* Garante que as imagens dos veículos sejam redimensionadas para caber na tela */
+        height: auto;
+    }
+
+    /* Ajustar a disposição dos itens no menu, se necessário */
+    nav ul {
+        display: flex;
+        flex-direction: column; /* Coloca os itens de navegação em uma coluna */
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+
+    /* Ajuste da altura do rodapé */
+    footer {
+        padding: 10px;
+    }
+}
+/* Contêiner para o vídeo para manter a proporção de 16:9 */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Proporção 16:9 (altura 56.25% da largura) */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    margin-bottom: 20px;
+}
+
+/* O iframe será posicionado de forma absoluta dentro do contêiner */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Para telas pequenas (como smartphones) */
+@media (max-width: 768px) {
+    .overlay h1 {
+        font-size: 24px; /* Ajusta o tamanho do título */
+    }
+
+    .overlay p {
+        font-size: 16px; /* Ajusta o tamanho do texto */
+    }
+}
+
+/* Garantir que o container do vídeo ocupe 100% da largura e altura */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* Proporção 16:9 (altura:largura) */
+    overflow: hidden;
+}
+
+/* Garantir que o iframe ocupe 100% da largura e altura da div */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Remover qualquer margem/padding adicional na página, se necessário */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+  display: flex;
+  align-items: center; /* Alinha verticalmente os itens */
+  justify-content: space-between; /* Espaça os itens ao máximo */
+}
+
+#logo {
+  height: 40px; /* Ajuste conforme o tamanho da sua logo */
+}
+
+#menu-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+}
+.video-container iframe {
+    width: 100%; 
+    height: 100%;
+    display: block;
+}

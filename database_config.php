@@ -3,6 +3,7 @@
  * Configuração compartilhada do banco de dados.
  * Credenciais de produção são geradas pelo workflow de deploy.
  * Em produção, config.local.php é criado pelo GitHub Actions e não fica no Git.
+ * Deploy automático para InfinityFree habilitado via variável do repositório.
  */
 $localConfigPath = __DIR__ . '/config.local.php';
 $localConfig = is_file($localConfigPath) ? require $localConfigPath : [];

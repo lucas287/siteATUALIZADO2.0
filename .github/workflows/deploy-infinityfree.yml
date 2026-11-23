@@ -45,7 +45,7 @@ jobs:
             fi
           done
           if [ "${#missing[@]}" -gt 0 ]; then
-            printf 'Missing GitHub Actions secrets: %s\\n' "${missing[*]}" >&2
+            printf 'Missing GitHub Actions secrets: %s\n' "${missing[*]}" >&2
             exit 1
           fi
 
@@ -60,6 +60,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PY'
+          import base64
           import json
           import os
           from pathlib import Path
@@ -69,14 +70,15 @@ jobs:
           if not values["password"]:
               raise SystemExit("MYSQL_PASSWORD is empty")
 
-          def php_string(value):
-              return "'" + value.replace("\\\\", "\\\\\\\\").replace("'", "\\\\'") + "'"
-
-          lines = ["<?php", "return ["]
-          for key in keys:
-              lines.append(f"    {php_string(key)} => {php_string(values[key])},")
-          lines.append("];")
-          Path("config.local.php").write_text("\\n".join(lines) + "\\n", encoding="utf-8")
+          payload = base64.b64encode(
+              json.dumps(values, ensure_ascii=True).encode("utf-8")
+          ).decode("ascii")
+          php_config = (
+              "<?php\\n"
+              "return json_decode(base64_decode('" + payload +
+              "'), true, 512, JSON_THROW_ON_ERROR);\\n"
+          )
+          Path("config.local.php").write_text(php_config, encoding="utf-8")
           PY
 
       - name: Upload PHP application to InfinityFree

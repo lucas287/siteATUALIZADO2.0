@@ -1,0 +1,3 @@
+# Local/private database credentials (generated only for deployment)
+/config.local.php
+/config.local.php.*

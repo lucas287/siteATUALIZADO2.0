@@ -1,6 +1,7 @@
 <?php
 /**
  * Configuração compartilhada do banco de dados.
+ * Credenciais de produção são geradas pelo workflow de deploy.
  * Em produção, config.local.php é criado pelo GitHub Actions e não fica no Git.
  */
 $localConfigPath = __DIR__ . '/config.local.php';

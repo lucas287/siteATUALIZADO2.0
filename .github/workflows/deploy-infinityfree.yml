@@ -74,9 +74,9 @@ jobs:
               json.dumps(values, ensure_ascii=True).encode("utf-8")
           ).decode("ascii")
           php_config = (
-              "<?php\\n"
+              "<?php\n"
               "return json_decode(base64_decode('" + payload +
-              "'), true, 512, JSON_THROW_ON_ERROR);\\n"
+              "'), true, 512, JSON_THROW_ON_ERROR);\n"
           )
           Path("config.local.php").write_text(php_config, encoding="utf-8")
           PY

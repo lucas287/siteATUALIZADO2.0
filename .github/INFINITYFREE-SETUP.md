@@ -2,36 +2,37 @@
 
 O repositório usa a Vercel para publicar a pasta `visual/` e o InfinityFree para hospedar o sistema PHP/MySQL da raiz.
 
-## 1. Obter os dados FTP
+## 1. Dados FTP
 
-No painel da conta InfinityFree, abra **FTP Details** e localize:
-- FTP Hostname
-- FTP Username
-- FTP Password
+No painel da conta InfinityFree, em **FTP Details**, localize o hostname, usuário e senha FTP. O destino do site é `htdocs/`.
 
-O destino padrão do site é a pasta `htdocs/`. Não envie a senha por mensagem ou para o repositório.
+## 2. Secrets do GitHub
 
-## 2. Salvar os dados como Secrets no GitHub
+No repositório, acesse **Settings → Secrets and variables → Actions → New repository secret** e mantenha estes secrets cadastrados:
 
-No repositório, acesse **Settings → Secrets and variables → Actions → New repository secret** e crie:
-
-| Nome | Valor |
+| Nome | Uso |
 | --- | --- |
-| `FTP_SERVER` | Hostname exibido em FTP Details |
-| `FTP_USERNAME` | Usuário FTP exibido em FTP Details |
-| `FTP_PASSWORD` | Senha FTP |
+| `FTP_SERVER` | Hostname FTP da hospedagem |
+| `FTP_USERNAME` | Usuário FTP |
+| `FTP_PASSWORD` | Senha FTP da hospedagem |
+| `MYSQL_PASSWORD` | Senha do banco MySQL da Voinich |
 
-Não coloque credenciais em arquivos do projeto, commits, Issues ou mensagens.
+As senhas FTP e MySQL são diferentes. Não coloque credenciais em arquivos do projeto, commits, Issues ou mensagens.
 
-## 3. Manter a automação desligada por enquanto
+## 3. Configuração PHP
 
-O workflow já foi preparado, mas fica bloqueado por padrão. **Não crie ainda a variável `INFINITYFREE_DEPLOY_ENABLED=true`.**
+Os arquivos `conexao.php` e `conexaolistar.php` agora usam o carregador compartilhado `database_config.php`.
 
-O código PHP atual ainda precisa ser adaptado à conexão MySQL do InfinityFree. O arquivo atual `conexao.php` usa `localhost/root` e senha vazia, configuração de ambiente local. Vamos ajustar também os pontos de conexão usados pelo restante do sistema antes de liberar a publicação, para não colocar uma página quebrada no ar.
+Durante a publicação, o GitHub Actions gera `config.local.php` com os dados do banco da hospedagem e a senha obtida de `MYSQL_PASSWORD`. Esse arquivo:
+- não é versionado no Git (está no `.gitignore`);
+- é criado apenas durante a execução do workflow;
+- é enviado para `htdocs/` junto com o PHP para que a aplicação consiga conectar ao MySQL.
 
-## 4. Depois da adaptação do banco
+Os dados de conexão configurados para a hospedagem são o host `sql109.infinityfree.com`, banco `if0_43515581_VoinichMotors`, usuário `if0_43515581` e porta `3306`.
 
-Quando a conexão estiver pronta e testada, crie em **Settings → Secrets and variables → Actions → Variables**:
+## 4. Ativar a publicação
+
+A automação continua bloqueada por padrão. Só depois de confirmar que os quatro secrets estão cadastrados e que o banco foi importado corretamente, crie em **Settings → Secrets and variables → Actions → Variables**:
 
 | Nome | Valor |
 | --- | --- |
@@ -39,9 +40,10 @@ Quando a conexão estiver pronta e testada, crie em **Settings → Secrets and v
 
 A partir daí, alterações na branch `main` que não sejam apenas da pasta `visual/` poderão ser enviadas automaticamente para `htdocs/`. Alterações visuais continuam sendo publicadas pela integração GitHub → Vercel.
 
-## Segurança
+## Segurança e limitações
 
 - O workflow não envia `visual/`, arquivos SQL, ZIPs, arquivos README, pastas Git ou arquivos `.env`.
-- O arquivo `loja.sql` contém registros de demonstração e senhas em texto puro. Não importe esses registros como dados reais nem use essas senhas em produção.
+- O arquivo `config.local.php` contém a senha MySQL e não deve ser copiado para o repositório nem compartilhado.
+- Os registros de `loja.sql` foram identificados pelo usuário como dados fictícios de demonstração. Não os reutilize como dados reais.
 - Antes de usar cadastros reais, será necessário revisar autenticação, hash de senhas, permissões e validação dos dados.
-- O FTP gratuito do InfinityFree é FTP comum (não SFTP). Use somente os secrets do GitHub para as credenciais.
+- O FTP gratuito do InfinityFree é FTP comum (não SFTP). As credenciais ficam armazenadas nos Secrets do GitHub.

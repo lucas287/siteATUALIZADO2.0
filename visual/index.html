@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Voinich Motors — vitrine visual de veículos.">
+  <title>Voinich Motors | Veículos em destaque</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://www.youtube.com">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/telainicial.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/efeitoprocarro.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/cssmenuexpansivel.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/cssindex.css">
+  <style>
+    :root{color-scheme:dark}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#090909;color:#f5f5f5;font-family:Arial,sans-serif}
+    #main-content{margin-top:0!important}
+    header{height:76px;padding:10px 24px!important;display:flex;align-items:center}
+    #header{width:100%;max-width:1400px;margin:auto}
+    #logo{height:48px;width:auto}
+    #menu-btn{font-size:clamp(17px,2vw,25px)!important;font-weight:700;letter-spacing:.5px}
+    .sidebar{z-index:1200}
+    .sidebar ul{padding:30px 12px}
+    .sidebar .fontdomenu,.sidebar .fontdomenu2,.sidebar .fontdomenu3{margin:12px 0}
+    .sidebar p{color:#fff!important}
+    .sidebar .fontdomenu p{color:#ed3338!important}
+    .submenu2-carros,.submenu3-carros{z-index:1300;max-width:calc(100vw - 24px)}
+    .submenu2-carros .vehicle{width:100%;margin:12px 0;padding:12px;background:#202020;border:1px solid #444}
+    .submenu2-carros .vehicle img{height:135px;object-fit:cover}
+    .submenu2-carros h2{color:#fff;font-size:18px;margin:8px}
+    .pro{height:calc(100vh - 76px);min-height:520px;margin-top:76px;background:#000}
+    .video-container{position:absolute;inset:0;width:100%;height:100%;padding:0;margin:0}
+    .video-container iframe{width:100%;height:100%;object-fit:cover;opacity:.72}
+    .pro .overlay{background:linear-gradient(90deg,rgba(0,0,0,.68),rgba(0,0,0,.12),rgba(0,0,0,.55))}
+    .cardtrans{max-width:100%;padding:20px}
+    .loader{height:auto;font-size:clamp(25px,5vw,64px);font-weight:800;justify-content:center}
+    .words{height:1.35em}
+    .word{height:1.35em;line-height:1.35em;text-shadow:0 3px 18px #000}
+    #vehicles{background:#101010;padding:72px 20px;gap:28px}
+    #vehicles:before{content:"ESCOLHA SEU PRÓXIMO VEÍCULO";display:block;width:100%;text-align:center;color:#ed3338;font-weight:800;letter-spacing:3px;font-size:clamp(18px,3vw,28px);margin-bottom:12px}
+    #vehicles .vehicle{width:min(340px,100%);margin:0;background:#171717;border:1px solid #333;border-radius:10px;color:#fff}
+    #vehicles .vehicle img{height:210px;object-fit:cover}
+    #vehicles .vehicle h3{color:#fff;letter-spacing:2px}
+    .visual-note{padding:14px 20px;background:#181818;border-top:1px solid #333;color:#aaa;text-align:center;font-size:12px}
+    .footer-container{background:#050505!important;border-top:1px solid #333!important;padding:22px 24px!important}
+    .footer-container p{color:#aaa!important}
+    .footer-logo img{width:36px;height:36px;object-fit:contain}
+    @media(max-width:700px){
+      header{padding:8px 12px!important}
+      #logo{height:38px}
+      #menu-btn{font-size:15px!important;margin:4px}
+      .pro{height:70vh;min-height:450px}
+      .loader{font-size:clamp(22px,7vw,38px)}
+      #vehicles{padding:48px 14px}
+      #vehicles .vehicle{width:100%;max-width:420px}
+      .submenu2-carros,.submenu3-carros{width:calc(100vw - 24px)!important;right:12px}
+    }
+  </style>
+</head>
+<body>
+  <div id="main-content">
+    <header>
+      <div id="header">
+        <img id="logo" src="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/logom-VMFinal.png" alt="Voinich Motors">
+        <button id="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰　Voinich Motors</button>
+      </div>
+    </header>
+
+    <aside id="sidebar" class="sidebar" aria-label="Menu principal">
+      <button id="close-btn" class="close-btn" aria-label="Fechar menu">&times;</button>
+      <center><img id="menu-logo" src="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/logom-VMFinal.png" alt="Voinich Motors" class="menu-logo"></center>
+      <ul>
+        <li class="fontdomenu"><a href="#vehicles"><p>DESTAQUES</p></a></li>
+        <li class="fontdomenu2"><a href="#about"><p>SOBRE O PROJETO</p></a></li>
+        <li class="fontdomenu2"><a href="#vehicles"><p>VEÍCULOS</p></a></li>
+        <li class="fontdomenu2"><a href="#location"><p>LOCALIZAÇÃO</p></a></li>
+        <li class="fontdomenu3"><a href="#" id="carros-link"><p>VER CATEGORIAS　›</p></a></li>
+      </ul>
+    </aside>
+
+    <aside id="submenu2-carros" class="submenu2-carros" aria-label="Categorias">
+      <button id="close-submenu2-btn" class="close-btn" aria-label="Fechar categorias">&times;</button>
+      <h2>CARROS</h2>
+      <a href="#vehicles"><img src="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/golf3.webp" alt="Volkswagen Golf"></a>
+      <h2>GOLF</h2>
+      <a href="#vehicles"><img src="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/jetta3.webp" alt="Volkswagen Jetta GLI"></a>
+      <h2>JETTA GLI</h2>
+      <h2>MOTOS</h2>
+      <a href="#vehicles"><img src="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/s1000rrr.jpg" alt="BMW S1000RR"></a>
+      <h2>S1000RR</h2>
+    </aside>
+
+    <main>
+      <section id="home" class="pro">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/bD_nlDO09f4?autoplay=1&mute=1&controls=0&loop=1&playlist=bD_nlDO09f4"
+            title="Vídeo de apresentação Voinich Motors" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="overlay">
+          <div class="cardtrans">
+            <div class="loader"><div class="words">
+              <span class="word"></span>
+              <span class="word">ENCONTRE</span>
+              <span class="word">CARROS</span>
+              <span class="word">MOTOS</span>
+              <span class="word">VOINICH MOTORS</span>
+            </div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="vehicles" class="vehicle-list">
+        <article class="vehicle">
+          <a href="#vehicles"><img src="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/gli.jpg" alt="Carro em destaque"></a>
+          <h3>CARROS</h3>
+        </article>
+        <article class="vehicle">
+          <a href="#vehicles"><img src="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/s1000k.jpg" alt="Motocicleta em destaque"></a>
+          <h3>MOTOS</h3>
+        </article>
+        <article id="location" class="vehicle">
+          <a href="https://www.google.com/maps/@-21.7929834,-50.8904675,3a,75y,279.84h,87.86t/data=!3m7!1e1!3m5!1sizf8GNh5Wd5cWxoiOiKf4g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D2.1364658562586953%26panoid%3Dizf8GNh5Wd5cWxoiOiKf4g%26yaw%3D279.8407075679281!7i16384!8i8192?entry=ttu" target="_blank" rel="noreferrer">
+            <img src="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/mapa.png" alt="Ver localização no mapa">
+          </a>
+          <h3>LOCALIZAÇÃO</h3>
+        </article>
+      </section>
+      <section id="about" class="visual-note">Demonstração visual do projeto acadêmico Voinich Motors.</section>
+    </main>
+
+    <footer class="footer-container">
+      <p>&copy; 2024 Voinich Motors. Projeto acadêmico.</p>
+      <a href="#home" class="footer-logo"><img src="https://cdn.jsdelivr.net/gh/lucas287/siteATUALIZADO2.0@main/logom-VMFinal.png" alt="Voltar ao início"></a>
+    </footer>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const menuButton = document.getElementById('menu-btn');
+    const closeButton = document.getElementById('close-btn');
+    const submenu = document.getElementById('submenu2-carros');
+    const categoryButton = document.getElementById('carros-link');
+    function closeMenu(){sidebar.style.width='0';menuButton.setAttribute('aria-expanded','false');}
+    menuButton.addEventListener('click',()=>{const open=sidebar.style.width==='250px';sidebar.style.width=open?'0':'250px';menuButton.setAttribute('aria-expanded',String(!open));});
+    closeButton.addEventListener('click',closeMenu);
+    categoryButton.addEventListener('click',(event)=>{event.preventDefault();submenu.style.display='block';});
+    document.getElementById('close-submenu2-btn').addEventListener('click',()=>submenu.style.display='none');
+    document.querySelectorAll('#sidebar a:not(#carros-link)').forEach(link=>link.addEventListener('click',closeMenu));
+  </script>
+</body>
+</html>

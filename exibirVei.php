@@ -125,7 +125,7 @@ function h($valor) {
           <?php endif; ?>
         </div>
       </article>
-    <?php endwhile; ?>
+    <?php endforeach; ?>
     <?php if(!$encontrou): ?>
       <div class="empty"><i class="fa fa-car"></i>Nenhum veículo encontrado. Tente outra busca ou cadastre um veículo.</div>
     <?php endif; ?>

@@ -169,6 +169,16 @@
         height: 40px;
     }
 
+
+        .creator { padding: 8px 6px 14px; }
+        .creator img { width: 92px; height: 92px; max-width: 100%; object-fit: cover; }
+        .creator-name { margin: 10px 0 4px; font-weight: 700; }
+        .creator-role { margin: 0 auto; max-width: 230px; color: #555; font-size: 14px; line-height: 1.45; }
+        @media (max-width: 600px) {
+            .creator { flex-basis: calc(50% - 20px); }
+            .creator img { width: 82px; height: 82px; }
+            .creator-role { font-size: 13px; }
+        }
     </style>
 </head>
 <body>
@@ -231,27 +241,33 @@
         <div class="creators">
             <div class="creator">
                 <img src="https://raw.githubusercontent.com/LojaVoinich/LojaVoinich/refs/heads/main/vinicius.png" alt="Criador 1">
-                <p>Criador 1</p>
+                <p class="creator-name">Criador 1</p>
+                <p class="creator-role">Backend, frontend, escrita e design.</p>
             </div>
             <div class="creator">
                 <img src="https://raw.githubusercontent.com/LojaVoinich/LojaVoinich/refs/heads/main/pedro.png" alt="Criador 2">
-                <p>Criador 2</p>
+                <p class="creator-name">Criador 2</p>
+                <p class="creator-role">Design e identidade visual do site.</p>
             </div>
             <div class="creator">
                 <img src="https://raw.githubusercontent.com/LojaVoinich/LojaVoinich/refs/heads/main/raul.png" alt="Criador 3">
-                <p>Criador 3</p>
+                <p class="creator-name">Criador 3</p>
+                <p class="creator-role">Desenvolvimento do backend.</p>
             </div>
             <div class="creator">
                 <img src="https://raw.githubusercontent.com/LojaVoinich/LojaVoinich/refs/heads/main/julia.jfif" alt="Criador 4">
-                <p>Criador 4</p>
+                <p class="creator-name">Criador 4</p>
+                <p class="creator-role">Produção e organização dos textos.</p>
             </div>
             <div class="creator">
                 <img src="https://raw.githubusercontent.com/LojaVoinich/LojaVoinich/refs/heads/main/kaue.jfif" alt="Criador 5">
-                <p>Criador 5</p>
+                <p class="creator-name">Criador 5</p>
+                <p class="creator-role">Produção e organização dos textos.</p>
             </div>
             <div class="creator">
                 <img src="https://raw.githubusercontent.com/LojaVoinich/LojaVoinich/refs/heads/main/lucas.png" alt="Criador 6">
-                <p>Criador 6</p>
+                <p class="creator-name">Criador 6</p>
+                <p class="creator-role">Backend, frontend, escrita e design.</p>
             </div>
         </div> 
 

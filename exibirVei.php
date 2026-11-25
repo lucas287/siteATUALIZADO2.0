@@ -14,6 +14,7 @@ if ($termo !== '') {
     $result_usuarios->bindParam(':nome', $busca, PDO::PARAM_STR);
 }
 $result_usuarios->execute();
+$veiculos = $result_usuarios->fetchAll(PDO::FETCH_ASSOC);
 
 function h($valor) {
     return htmlspecialchars((string)$valor, ENT_QUOTES, 'UTF-8');
@@ -95,12 +96,11 @@ function h($valor) {
   <?php if(isset($_SESSION['msg'])): ?>
     <div class="notice"><?php echo h($_SESSION['msg']); unset($_SESSION['msg']); ?></div>
   <?php endif; ?>
-  <div class="results"><span><strong><?php echo (int)$result_usuarios->rowCount(); ?></strong> registro(s) encontrado(s)</span><a href="logvei.php" style="color:#ff777c;text-decoration:none"><i class="fa fa-plus"></i> Cadastrar veículo</a></div>
+  <div class="results"><span><strong><?php echo count($veiculos); ?></strong> registro(s) encontrado(s)</span><a href="logvei.php" style="color:#ff777c;text-decoration:none"><i class="fa fa-plus"></i> Cadastrar veículo</a></div>
   <section class="grid" aria-label="Lista de veículos">
     <?php
-    $encontrou = false;
-    while($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)):
-      $encontrou = true;
+    $encontrou = !empty($veiculos);
+    foreach($veiculos as $row_usuario):
       $id = $row_usuario['id'];
       $foto = $row_usuario['foto'] ?? '';
       $caminhoFoto = (!empty($foto) && file_exists("imagens/$id/$foto")) ? "imagens/$id/" . rawurlencode($foto) : "imagens/icon_user.png";

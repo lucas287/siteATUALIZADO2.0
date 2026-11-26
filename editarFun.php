@@ -1,23 +1,12 @@
 <?php
-session_start();
-include_once("conexao.php");
-
-$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
-$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-$cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_STRING);
-$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-$senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
-
-//echo "Nome: $nome <br>";
-//echo "E-mail: $email <br>";
-
-$result_usuario = "UPDATE funcionario SET nome='$nome', cpf='$cpf', email='$email', senha='$senha' WHERE id='$id'";
-$resultado_usuario = mysqli_query($conn, $result_usuario);
-
-if(mysqli_affected_rows($conn)){
-	$_SESSION['msg'] = "<p style='color:green;'>Funcionario editado com sucesso</p>";
-	header("Location: atualizarFun.php");
-}else{
-	$_SESSION['msg'] = "<p style='color:red;'>Funcionário não foi editado com sucesso</p>";
-	header("Location: atualizarFun.php?id=$id");
-}
+session_start(); include_once("conexao.php");
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: exibirFuncionario.php'); exit; }
+$id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+$nome = trim($_POST['nome'] ?? ''); $cpf = trim($_POST['cpf'] ?? ''); $email = trim($_POST['email'] ?? ''); $senha = $_POST['senha'] ?? '';
+if (!$id || $nome === '' || $cpf === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) { $_SESSION['msg']='Confira os dados informados e tente novamente.'; header('Location: exibirFuncionario.php'); exit; }
+if ($senha !== '' && strlen($senha) < 6) { $_SESSION['msg']='A nova senha precisa ter pelo menos 6 caracteres.'; header('Location: editfun.php?id='.$id); exit; }
+if ($senha !== '') { $stmt=$conn->prepare("UPDATE funcionario SET nome=?, cpf=?, email=?, senha=? WHERE id=?"); $stmt->bind_param("ssssi",$nome,$cpf,$email,$senha,$id); }
+else { $stmt=$conn->prepare("UPDATE funcionario SET nome=?, cpf=?, email=? WHERE id=?"); $stmt->bind_param("sssi",$nome,$cpf,$email,$id); }
+if ($stmt->execute()) { $_SESSION['msg']='Dados do funcionário atualizados.'; }
+else { $_SESSION['msg']='Erro ao atualizar. Verifique se o CPF ou e-mail já está em uso.'; }
+header('Location: exibirFuncionario.php'); exit;
